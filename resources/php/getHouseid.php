@@ -6,7 +6,7 @@
 		die("Could not connect to the database server");
 	} 
 	
-	$db = mysql_select_db("nilmtemp");
+	$db = mysql_select_db("your db name");
 	if (!$conn) 
 	{
 		die("Could not connect to the database");

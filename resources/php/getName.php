@@ -1,13 +1,13 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
 	extract($_GET);
-	$conn = mysql_connect("localhost", "root", "");
+	$conn = mysql_connect("your server IP", "your username", "your password");
 	if (!$conn) 
 	{
 		die("Could not connect to the database server");
 	} 
 	
-	$db = mysql_select_db("nilmtemp");
+	$db = mysql_select_db("your db name");
 	if (!$conn) 
 	{
 		die("Could not connect to the database");
