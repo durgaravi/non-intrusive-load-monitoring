@@ -11,9 +11,7 @@ def login():
 
 @route('/update/<houseid>/<filename>')
 def call_update(houseid,filename):
-	print "C:\\Users\\durga.BLR\\Desktop\\"+filename
-	res = csvload(houseid,"C:\\Users\\durga.BLR\\Desktop\\"+filename)
-	print "res:",res
+	res = csvload(houseid,"/home/user"+filename)
 	return res
 
 @route('/timeseries/<houseid>/<timeby>/<value>')

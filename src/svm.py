@@ -5,7 +5,7 @@ import pymysql
 
 def predict_test(houseid,inputfile,eventfile):
 	try:
-		conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='', db='nilmtemp',autocommit=True)
+		conn = pymysql.connect(host='your server ip', port=3306, user='your username', passwd='your password', db='your db name',autocommit=True)
 	except:
 		print "Cannot connect to database"
 		return False

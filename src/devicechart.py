@@ -7,7 +7,7 @@ def format_time(date,hour,min):
 def get_device_data(house_id,date):
 	date="/".join([str(int(x)).zfill(2) for x in date.split("-")])
 	try:
-		conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='', db='nilmtemp')
+		conn = pymysql.connect(host='your server ip', port=3306, user='your username', passwd='your password', db='your db name')
 	except:
 		print "Cannot connect to database"
 		return

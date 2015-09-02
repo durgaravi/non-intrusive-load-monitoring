@@ -2,7 +2,7 @@ import pymysql
 
 def get_piechart_data(house_id):
 	try:
-		conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='', db='nilmtemp')
+		conn = pymysql.connect(host='your server ip', port=3306, user='your username', passwd='your password', db='your db name')
 	except:
 		print "Cannot connect to database"
 		return
