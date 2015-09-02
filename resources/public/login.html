@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	</br>
+	</br>
+	</br>
+	<h1 class="page-header">
+            <center>Welcome to Non-Intrusive Load Monitoring Portal</center>
+    </h1>
+	
+	<!--<div style="float:left">
+	<img src="http://localhost:8080/graph.png" height="500px" width="700px"/>
+	</div>-->
+	<div class="row">
+    <div style="margin-left:10%" class="container">
+        
+		
+            <div class="col-md-4 col-md-offset-4">
+				
+                <div class="login-panel panel panel-default">
+				
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" onsubmit="return chkPwd();">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" id="username" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" id="pwd" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button onclick = "chkPwd();" class="btn btn-lg btn-success btn-block">Login</button></br>
+								<a href="register.html" class="btn btn-lg btn-info btn-block">Register</a>
+                            </fieldset>
+                        </form>
+						
+                    </div>
+					
+                </div>
+				<span id="warning" class="panel-title" style="display:None;"></span>
+            </div>
+			</div>
+    </div>
+
+	
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+	
+	<script>
+		function chkPwd()
+		{
+			username = document.getElementById("username").value;
+			password = document.getElementById("pwd");
+			xhr = new XMLHttpRequest();
+			xhr.open("GET","http://localhost/php/getHouseid.php?username="+username,false);
+			xhr.send();
+			a = JSON.parse(xhr.responseText);
+			if(a[3] == pwd.value)
+			{
+				sessionStorage.setItem("username",username);
+				sessionStorage.setItem("houseid",a[0]);
+				sessionStorage.setItem("firstname",a[1]);
+				sessionStorage.setItem("lastname",a[2]);
+				window.location.href = "http://localhost:8080/index.html";
+				return false;
+			}
+			else
+			{
+				pwd.value = "";
+				document.getElementById("warning").innerHTML = "Incorrect password entered. Please try again.";
+				warning.style.display="block";
+			}
+		}
+	</script>
+
+</body>
+
+</html>
